@@ -1,6 +1,12 @@
 $icon-font-path: '../fonts/';
 
+//noinspection CssUnknownTarget
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+//noinspection CssUnknownTarget
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:700);
+
 // bower:scss
+//noinspection CssUnknownTarget
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
@@ -11,83 +17,95 @@ $icon-font-path: '../fonts/';
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
+$space-sm: 8px;
+$space-md: 18px;
+$space-lg: 26px;
+$space-xlg: 76px;
+
+$color-primary: #4E5864;
+$color-secondary: #C9CCD0;
+$color-divider: #F7F7F7;
+$green: #5ABD4B;
+$radius: 5px;
+
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 2;
+  color: $color-primary;
+  min-width: 800px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+hr {
+  border: none;
+  height: 3px;
+  color: $color-divider;
+  background-color: $color-divider;
+  margin: $space-xlg 0 $space-xlg;
 }
 
-/* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
+  height: 462px;
+  width: 100%;
+  text-align: right;
+  background: transparent url('../images/header_background.jpg') repeat-x;
+  -webkit-background-size: 1165px;
+  background-size: 1165px;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
+.container {
+  width: 800px;
 
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+  .pictures img {
+    margin-bottom: $space-md;
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+    @include opacity(0.9);
+    @include border-bottom-radius($radius);
+    @include border-top-radius($radius);
+    @include border-right-radius($radius);
+    @include border-left-radius($radius);
   }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
+  .texts {
+
+    .title {
+      font-family: "Roboto Slab", serif;
+      font-weight: bold;
+      font-size: 30px;
+      margin-bottom: $space-lg;
+    }
+
+    .subtitle {
+      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.5;
+      padding-top: $space-lg;
+    }
+
+    p { margin-bottom: $space-md; }
+    .faded { color: $color-secondary; }
+  }
+
   .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+    .registration-form {
+      input {
+        width: 260px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .btn.btn-primary {
+        background: $green;
+        border: none;
+        @include box-shadow(inset 0px -1px 0px rgba(0, 0, 0, 0.1));
+        &:hover { background: darken($green, 5%); }
+      }
+      margin-bottom: $space-xlg;
+    }
+    text-align: center;
+    padding-bottom: $space-md;
   }
 }
+
